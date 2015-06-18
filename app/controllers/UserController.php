@@ -4,59 +4,21 @@ class UserController extends BaseController {
 
   public function register()
   {
-     
-    $data = Input::only(['first_name', 'last_name', 'username', 'email', 'password']);
+    $data = Input::only(['first_name','last_name','username','email','password']);
 
-    $rules = array(
-      'first_name'  => 'required',
-      'last_name'   => 'required',
-      'username'    => 'required|unique:users',
-      'email'       => 'required|unique:users',
-      'password'    => 'required'
-    );
-  
-    $messages = array(
-      'first_name.required'  => 'El Nombre es obligatorio',
-      'last_name.required'   => 'Los Apellidos son obligatorios.',
-      'username.required'    => 'El Username esobligatorio.',
-      'email.required'       => 'El Email es obligatorio.',
-      'password.required'    => 'La Contraseña es obligatoria.',
-      'username.unique'      => 'Ya existe este Username, por favor elige otro.',
-      'email.unique'         => 'Ya existe este Email, por favor elige otro.'
-    );
-   
-    $validation = Validator::make($data, $rules, $messages);
-   
-    if ($validation->fails())
-    {
-        //var_dump('error');
-        return Redirect::to('dash')->withErrors($validation);
- 
-    }else{
-      
-      $newUser = User::create($data);
+    $newUser = User::create($data);
 
-      $role = Input::get('role');
+    Mail::send('emails.welcome', array('first_name'=>Input::get('first_name')), function($message){
+      $message->to(Input::get('email'), Input::get('first_name').' '.Input::get('last_name'))->subject('Welcome to AuthLaravelSimple');
+    });
 
-      if ($role == 1 ) {
-        $newUser->makeRole('super_admin');
-      }
-      else {
-       $newUser->makeRole('admin'); 
-      }
-
-      Mail::send('emails.welcome', array('first_name'=>Input::get('first_name')), function($message){
-        $message->to(Input::get('email'), Input::get('first_name').' '.Input::get('last_name'))->subject('Welcome to AuthLaravelSimple');
-      });
-
-      if($newUser){
-        //Auth::login($newUser);
-        return Redirect::to('dash');
-      }
-
-      return Redirect::route('showRegister')->withInput();
-
+    if($newUser){
+      Auth::login($newUser);
+      return Redirect::to('dash');
     }
+
+    return Redirect::route('showRegister')->withInput();
+
   }
 
   public function account()
@@ -134,28 +96,6 @@ class UserController extends BaseController {
     $user->fill($data);
     $user->save();
     return View::make('auth/dash');
-  }
-
-  public function getUsers()
-  {
-    $users = DB::table('users')->get(['id', 'first_name', 'email', 'username']);
-    return Response::json(array(
-      'users' =>  $users
-    ));
-  }
-
-  public function listUsers()
-  {
-    $users = DB::table('users')->where('id','!=', Auth::user()->id)->get(['id', 'first_name', 'email', 'username']);
-    return Response::json(array(
-      'users' =>  $users
-    ));
-  }
-
-  public function deleteUser($id){
-    //var_dump($id);
-    $user = User::find($id);
-    $user->delete();
   }
 
 }

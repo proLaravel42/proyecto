@@ -23,15 +23,9 @@
       {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username', 'autofocus' => '']) }}
 
       {{Form::text('email', null,['class' => 'form-control', 'placeholder' => 'Email', 'autofocus' => ''])}}
-      
 
       {{ Form::label('password', 'Password', ['class' => 'sr-only']) }}
       {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
-
-      <div class="checkbox">
-        <label>
-          {{ Form::checkbox('role', '1') }} is super admin
-      </div>
 
       <p>
         <input type="submit" value="Register" class="btn btn-success">

@@ -79,12 +79,3 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
-
-Form::macro('custom', function($id, $type, $name, $value = null, $options = array()) {
-    $value = ((is_null($value) or $value == '')) ? Input::old($name) : $value;
-    $input =  '<input class="'. $id .'" type="'. $type .'" name="' . $name . '" value="' . $value . '"';
-    foreach ($options as $key => $value) {
-        $input .= ' ' . $key . '="' . $value . '"';
-    }
-    return $input.'>';
-});

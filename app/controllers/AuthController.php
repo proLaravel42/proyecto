@@ -22,7 +22,7 @@ class AuthController extends BaseController {
       return Redirect::to('dash');
     }
     else{
-      return Redirect::back()->with('error_message', 'Verifica tu información')->withInput();
+      return Redirect::back()->with('error_message', 'Tus datos son erroneos')->withInput();
     }
 
   }
@@ -30,7 +30,7 @@ class AuthController extends BaseController {
   public function logout()
   {
     Auth::logout();
-    return Redirect::to('login')->with('error_message', 'Saliste Correctamente');
+    return Redirect::to('login')->with('error_message', 'Logged out correctly');
   }
 
   public function showWelcome()

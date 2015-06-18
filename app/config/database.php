@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'bdincan',
+			'database'  => 'proyecto',
 			'username'  => 'root',
 			'password'  => '',
 			'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
