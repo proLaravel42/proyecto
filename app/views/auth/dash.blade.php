@@ -179,7 +179,7 @@
                         {{ Form::text('folio','', ['id' => 'folio', 'class' => 'form-control', 'placeholder' => 'Folio', 'autofocus' => '']) }}
                         </br>
                         {{ Form::label('Oficio Referencia', 'Oficio Referencia')}}
-                        {{ Form::text('oficio_referencia','', ['id' => 'oficio_referencia', 'class' => 'form-control', 'placeholder' => 'Oficio Referencia', 'autofocus' => '']) }}
+                        {{ Form::text('oficioReferencia','', ['id' => 'oficio_referencia', 'class' => 'form-control', 'placeholder' => 'Oficio Referencia', 'autofocus' => '']) }}
                         </br>
                         {{ Form::label('Descripcion', 'Descripcion')}}
                         {{ Form::text('descripcion', '', ['id' => 'descripcion', 'class' => 'form-control', 'placeholder' => 'Asunto', 'autofocus' => '']) }}

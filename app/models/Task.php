@@ -1,5 +1,5 @@
 <?php
-class Tarea extends Eloquent {
+class Task extends Eloquent {
 	/*autoriza asignacion masiva*/
 	protected $fillable = ['folio',
 						   'oficio_referencia',
