@@ -36,7 +36,7 @@ Route::group(['before' => 'auth'], function()
 	Route::post('updateUser', ['as' => 'updateUser', 'uses' => 'UserController@updateUser' ] );
 
 	Route::post('uploadImage', ['as' => 'uploadImage', 'uses' => 'UserController@uploadImage' ] );
-	Route::post('asignTask', ['as' => 'asignTask', 'uses' => 'UserController@uploadImage' ] );
+	Route::post('asignTask', ['as' => 'asignTask', 'uses' => '' ] );
 
 	//Route::post('uploadImage', 'UserController@uploadImage');
 });
