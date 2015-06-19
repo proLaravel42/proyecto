@@ -173,7 +173,7 @@
                       
                       {{ Form::open(['route' => 'asignTask', 'method' => 'POST', 'role' => 'form','files' => true]) }}
                         {{ Form::hidden('admin_id', Auth::user()->id ) }}
-                        {{ Form::hidden('estatus', 'enproceso' ) }}
+                       
                         </br>
                         {{ Form::label('Folio', 'Folio')}}
                         {{ Form::text('folio','', ['id' => 'folio', 'class' => 'form-control', 'placeholder' => 'Folio', 'autofocus' => '']) }}
@@ -181,39 +181,10 @@
                         {{ Form::label('Oficio Referencia', 'Oficio Referencia')}}
                         {{ Form::text('oficio_referencia','', ['id' => 'oficio_referencia', 'class' => 'form-control', 'placeholder' => 'Oficio Referencia', 'autofocus' => '']) }}
                         </br>
-                        {{ Form::label('Asunto', 'Asunto')}}
-                        {{ Form::text('asunto', '', ['id' => 'asunto', 'class' => 'form-control', 'placeholder' => 'Asunto', 'autofocus' => '']) }}
+                        {{ Form::label('Descripcion', 'Descripcion')}}
+                        {{ Form::text('descripcion', '', ['id' => 'descripcion', 'class' => 'form-control', 'placeholder' => 'Asunto', 'autofocus' => '']) }}
                         </br>
-                        {{ Form::label('Fecha de Recepción', 'Fecha Recepción')}}
                         
-                        {{ Form::label('Fecha de respuesta', 'Fecha Respuesta')}}
-                        <!-- class , type, name -->
-                       
-                        </br>
-                        {{ Form::label('Area Generadora', 'Area Generadora')}}
-                        {{ Form::text('area_generadora','', ['id' => 'area_generadora', 'class' => 'form-control', 'placeholder' => 'Area Generadora', 'autofocus' => '']) }}
-                        </br>
-                        {{ Form::label('Nombre del titular', 'Nombre del Titular')}}
-                        {{ Form::text('nombre_titular', '', ['id' => 'nombre_titular', 'class' => 'form-control', 'placeholder' => 'Nombre Titular', 'autofocus' => '']) }}
-                        </br>
-                        {{ Form::label('Asignado a', 'Asignado a')}}
-                        <select id="usuarios" name="user_id">
-                          <option>Por favor elige una opción</option>
-                        </select>
-                        </br>
-                        </br>
-                        {{ Form::label('Ubicación Topografica', 'Ubicación Topografica')}}
-                        {{ Form::text('ubicacion_topografica','', ['id' => 'ubicacion_topografica', 'class' => 'form-control', 'placeholder' => 'Ubicacion Topografica', 'autofocus' => '']) }}
-                        
-                        </br>
-                        {{ Form::label('Estatus', 'Estatus')}}
-                        <select id="estatus" name="estatus">
-                          <option>En seguimiento</option>
-                        </select>
-                        </br>
-                        </br>
-                        {{ Form::file('filePdf',  ['id' => 'filePdf']) }}
-                        </br>
                         <p class="center">
                           <input type="submit" value="Asignar Tarea" class="btn btn-success">
                         </p>
