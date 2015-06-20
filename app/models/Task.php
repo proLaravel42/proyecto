@@ -2,7 +2,7 @@
 class Task extends Eloquent {
 	/*autoriza asignacion masiva*/
 	protected $fillable = ['folio',
-						   'oficio_referencia',
+						   'oficioReferencia',
 						   'descripcion'];
 						  
 	public $timestamps = false;

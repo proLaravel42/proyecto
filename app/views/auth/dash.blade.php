@@ -51,7 +51,8 @@
 
           </ul>
           <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input id="search" class="form-control" placeholder="Search...">
+            <button type="button" class"btn btn-info" onclick="searchTask();">Buscar</button>
           </form>
         </div>
       </div>
